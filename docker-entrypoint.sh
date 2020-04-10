@@ -1,9 +1,7 @@
 #!/bin/sh
 
-if [ -f /opt/embulk/plugins.txt ]; then
-    for plugin in `cat /opt/embulk/plugins.txt`; do
-        java -jar /opt/embulk/embulk.jar gem install $plugin
-    done
+if [ -f /opt/embulk/Gemfile ]; then
+    java -jar /opt/embulk/embulk.jar bundle
 fi
 
 exec java -jar /opt/embulk/embulk.jar "${@}"
